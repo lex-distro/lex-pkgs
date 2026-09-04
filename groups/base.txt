@@ -1,0 +1,5 @@
+# lex base group.
+# File order = install order. Blank lines and '#' comments are ignored.
+# "@other" includes another group. Install with: lex install @base
+hello
+fastfetch

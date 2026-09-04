@@ -1,0 +1,15 @@
+{
+  "kind": "recipe",
+  "name": "hello",
+  "version": "2.12",
+  "arch": ["any"],
+  "deps": [],
+  "homepage": "https://www.gnu.org/software/hello/",
+  "description": "GNU hello, the classic autotools example program.",
+  "source": {
+    "url": "https://ftp.gnu.org/gnu/hello/hello-2.12.tar.gz",
+    "sha256": "cf04af86dc085268c5f4470fbae49b18afbc221b78096aab842d934a76bad0ab",
+    "build": ["./configure --prefix=/usr", "make"],
+    "install": ["DESTDIR=$DESTDIR make install"]
+  }
+}
