@@ -10,9 +10,10 @@
     "url": "https://github.com/fastfetch-cli/fastfetch/releases/download/2.68.1/fastfetch-linux-amd64.tar.gz",
     "sha256": "0c51ef6fa3e976eb5038fe0afda38629d3ca07947740bb0e3354c7c4f1238c0c",
     "install": [
-      "cp -a fastfetch-linux-amd64/usr/bin/fastfetch /usr/bin/fastfetch",
-      "cp -a fastfetch-linux-amd64/usr/bin/flashfetch /usr/bin/flashfetch",
-      "cp -a fastfetch-linux-amd64/usr/share/fastfetch /usr/share/fastfetch"
+      "mkdir -p $DESTDIR/usr/bin $DESTDIR/usr/share",
+      "cp -a fastfetch-linux-amd64/usr/bin/fastfetch $DESTDIR/usr/bin/fastfetch",
+      "cp -a fastfetch-linux-amd64/usr/bin/flashfetch $DESTDIR/usr/bin/flashfetch",
+      "cp -a fastfetch-linux-amd64/usr/share/fastfetch $DESTDIR/usr/share/fastfetch"
     ]
   },
   "source": {

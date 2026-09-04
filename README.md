@@ -27,7 +27,7 @@ groups/
   "binary": {
     "url": "https://.../pkg.tar.gz",
     "sha256": "<sha256 of the tarball>",
-    "install": ["cp -a ... /usr/..."]
+    "install": ["mkdir -p $DESTDIR/usr/bin", "cp -a bin/tool $DESTDIR/usr/bin/tool"]
   },
   "source": {
     "url": "https://.../pkg-1.0.tar.gz",
@@ -45,8 +45,9 @@ groups/
   `binary` unless `lex.conf` says `Prefer = source` (or `--method=`).
 - `sha256` must be the real tarball checksum — it is verified on every
   install. Get it with `sha256sum file.tar.gz`.
-- `install` commands run with a `DESTDIR` staging dir for source builds;
-  `remove` deletes the recorded manifest, so no `remove` stanza is needed.
+- `install` commands run with a `DESTDIR` staging dir and **must** install
+  under `$DESTDIR` (e.g. `$DESTDIR/usr/bin`), never absolute system paths.
+  `lex` copies the stage tree to `/` and records the manifest from it.
   `post_remove` is only for non-file side effects (`ldconfig`, cache updates).
 - Package `name` must match `^[A-Za-z0-9._-]+$` and the file name.
 
