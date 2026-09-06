@@ -12,7 +12,6 @@
     "install": [
       "mkdir -p $DESTDIR/usr/bin $DESTDIR/usr/share",
       "cp -a fastfetch-linux-amd64/usr/bin/fastfetch $DESTDIR/usr/bin/fastfetch",
-      "cp -a fastfetch-linux-amd64/usr/bin/flashfetch $DESTDIR/usr/bin/flashfetch",
       "cp -a fastfetch-linux-amd64/usr/share/fastfetch $DESTDIR/usr/share/fastfetch"
     ]
   },
