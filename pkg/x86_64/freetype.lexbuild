@@ -10,11 +10,11 @@
     "url": "https://downloads.sourceforge.net/freetype/freetype-2.13.1.tar.xz",
     "sha256": "ea67e3b019b1104d1667aa274f5dc307d8cbd606b399bc32df308a77f1a564bf",
     "build": [
-      "sed -ri "s:.*(AUX_MODULES.*valid):\1:" modules.cfg",
-      'sed -r "s:.*(#.*SUBPIXEL_RENDERING) .*:\1:" \
-    -i include/freetype/config/ftoption.h',
-    "./configure --prefix=/usr --enable-freetype-config --disable-static",
-    "make"],
+      "sed -ri 's:.*(AUX_MODULES.*valid):\\1:' modules.cfg",
+      "sed -r 's:.*(#.*SUBPIXEL_RENDERING) .*:\\1:' -i include/freetype/config/ftoption.h",
+      "./configure --prefix=/usr --enable-freetype-config --disable-static",
+      "make"
+    ],
     "install": ["make install"],
     "post_remove": ["ldconfig"]
   },
