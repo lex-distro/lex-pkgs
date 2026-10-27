@@ -10,18 +10,9 @@
     "url": "https://dbus.freedesktop.org/releases/dbus/dbus-1.14.8.tar.xz",
     "sha256": "a6bd5bac5cf19f0c3c594bdae2565a095696980a683a0ef37cb6212e093bde35",
     "build": [
-    "./configure --prefix=/usr                        \
-            --sysconfdir=/etc                    \
-            --localstatedir=/var                 \
-            --runstatedir=/run                   \
-            --disable-doxygen-docs               \
-            --disable-xml-docs                   \
-            --disable-static                     \
-            --with-systemduserunitdir=no         \
-            --with-systemdsystemunitdir=no       \
-            --docdir=/usr/share/doc/dbus-1.14.8  \
-            --with-system-socket=/run/dbus/system_bus_socket",
-    "make"],
+      "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --runstatedir=/run --disable-doxygen-docs --disable-xml-docs --disable-static --with-systemduserunitdir=no --with-systemdsystemunitdir=no --docdir=/usr/share/doc/dbus-1.14.8 --with-system-socket=/run/dbus/system_bus_socket",
+      "make"
+    ],
     "install": ["make install", "ln -sfv /var/lib/dbus/machine-id /etc"],
     "post_remove": ["ldconfig"]
   },
