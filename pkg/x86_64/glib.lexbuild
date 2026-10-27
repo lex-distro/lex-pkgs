@@ -12,10 +12,6 @@
     "build": [
       "wget https://www.linuxfromscratch.org/patches/blfs/12.0/glib-skip_warnings-1.patch",
       "patch -Np1 -i glib-skip_warnings-1.patch",
-      "if [ -e /usr/include/glib-2.0 ]; then
-        rm -rf /usr/include/glib-2.0.old &&
-        mv -vf /usr/include/glib-2.0{,.old}
-        fi",
       "mkdir build",
       "cd build",
       "meson setup ..  --prefix=/usr --buildtype=release -Dman=true",
