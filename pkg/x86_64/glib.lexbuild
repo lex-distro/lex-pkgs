@@ -18,10 +18,7 @@
         fi",
       "mkdir build",
       "cd build",
-      "meson setup ..            \
-      --prefix=/usr       \
-      --buildtype=release \
-      -Dman=true",
+      "meson setup ..  --prefix=/usr --buildtype=release -Dman=true",
       "ninja"],
     "install": ["ninja install"],
     "post_remove": ["ldconfig"]
