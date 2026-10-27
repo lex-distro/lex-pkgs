@@ -1,0 +1,17 @@
+{
+  "kind": "recipe",
+  "name": "xorgproto",
+  "version": "2023.2",
+  "arch": ["x86_64"],
+  "deps": [],
+  "homepage": "https://xorg.freedesktop.org",
+  "description": "The xorgproto package provides the header files required to build the X Window system, and to allow other applications to build against the installed X Window system.",
+  "source": {
+    "url": "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2023.2.tar.xz",
+    "sha256": "b61fbc7db82b14ce2dc705ab590efc32b9ad800037113d1973811781d5118c2c",
+    "build": ["mkdir build", "cd build", "meson setup --prefix=$XORG_PREFIX ..", "ninja"],
+    "install": ["ninja install", "mv -v $XORG_PREFIX/share/doc/xorgproto{,-2023.2}"],
+    "post_remove": ["ldconfig"]
+  },
+  "post_remove": ["ldconfig"]
+}

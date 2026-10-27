@@ -1,0 +1,24 @@
+{
+  "kind": "recipe",
+  "name": "fontconfig",
+  "version": "2.14.2",
+  "arch": ["x86_64"],
+  "deps": [],
+  "homepage": "https://www.freedesktop.org",
+  "description": "The Fontconfig package contains a library and support programs used for configuring and customizing font access.",
+  "source": {
+    "url": "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.14.2.tar.xz",
+    "sha256": "dba695b57bce15023d2ceedef82062c2b925e51f5d4cc4aef736cf13f60a468b",
+    "build": [
+    "./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var \
+            --disable-docs       \
+            --docdir=/usr/share/doc/fontconfig-2.14.2",
+    "make"
+    ],
+    "install": ["make install"],
+    "post_remove": ["ldconfig"]
+  },
+  "post_remove": ["ldconfig"]
+}

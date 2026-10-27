@@ -1,0 +1,17 @@
+{
+  "kind": "recipe",
+  "name": "libXau",
+  "version": "1.0.11",
+  "arch": ["x86_64"],
+  "deps": [],
+  "homepage": "https://github.com/fastfetch-cli/fastfetch",
+  "description": "The libXau package contains a library implementing the X11 Authorization Protocol. This is useful for restricting client access to the display.",
+  "source": {
+    "url": "https://www.x.org/pub/individual/lib/libXau-1.0.11.tar.xz",
+    "sha256": "f3fa3282f5570c3f6bd620244438dbfbdd580fc80f02f549587a0f8ab329bbeb",
+    "build": ["./configure $XORG_CONFIG", "make"],
+    "install": ["make install"],
+    "post_remove": ["ldconfig"]
+  },
+  "post_remove": ["ldconfig"]
+}

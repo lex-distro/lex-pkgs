@@ -1,0 +1,17 @@
+{
+  "kind": "recipe",
+  "name": "util-macros",
+  "version": "1.20.0",
+  "arch": ["x86_64"],
+  "deps": [],
+  "homepage": "https://xorg.freedesktop.org/archive/individual/util/",
+  "description": "The util-macros package contains the m4 macros used by all of the Xorg packages.",
+  "source": {
+    "url": "https://www.x.org",
+    "sha256": "0b86b262dbe971edb4ff233bc370dfad9f241d09f078a3f6d5b7f4b8ea4430db",
+    "build": ["./configure $XORG_CONFIG"],
+    "install": ["make install"],
+    "post_remove": ["ldconfig"]
+  },
+  "post_remove": ["ldconfig"]
+}

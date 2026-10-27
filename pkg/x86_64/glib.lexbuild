@@ -1,0 +1,30 @@
+{
+  "kind": "recipe",
+  "name": "glib",
+  "version": "2.76.4",
+  "arch": ["x86_64"],
+  "deps": [],
+  "homepage": "https://download.gnome.org",
+  "description": "The GLib package contains low-level libraries useful for providing data structure handling for C, portability wrappers and interfaces for such runtime functionality as an event loop, threads, dynamic loading and an object system.",
+  "source": {
+    "url": "https://download.gnome.org/sources/glib/2.76/glib-2.76.4.tar.xz",
+    "sha256": "5a5a191c96836e166a7771f7ea6ca2b0069c603c7da3cba1cd38d1694a395dda",
+    "build": [
+      "wget https://www.linuxfromscratch.org/patches/blfs/12.0/glib-skip_warnings-1.patch",
+      "patch -Np1 -i glib-skip_warnings-1.patch",
+      "if [ -e /usr/include/glib-2.0 ]; then
+        rm -rf /usr/include/glib-2.0.old &&
+        mv -vf /usr/include/glib-2.0{,.old}
+        fi",
+      "mkdir build",
+      "cd build",
+      "meson setup ..            \
+      --prefix=/usr       \
+      --buildtype=release \
+      -Dman=true",
+      "ninja"],
+    "install": ["ninja install"],
+    "post_remove": ["ldconfig"]
+  },
+  "post_remove": ["ldconfig"]
+}
